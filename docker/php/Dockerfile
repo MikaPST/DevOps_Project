@@ -2,12 +2,12 @@ FROM php:7.4-fpm
 
 RUN docker-php-ext-install pdo_mysql
 
-ENV DOCKERIZE_VERSION 19.03.13
+ENV DOCKERIZE_VERSION 0.6.1
 
 # Install dockerize so we can wait for containers to be ready
-#RUN curl -s -f -L -o /tmp/dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz \
-#    && tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
-#    && rm /tmp/dockerize.tar.gz
+RUN curl -s -f -L -o /tmp/dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
+    && rm /tmp/dockerize.tar.gz
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash

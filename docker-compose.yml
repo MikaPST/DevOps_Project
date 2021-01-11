@@ -34,9 +34,9 @@ services:
       - ./run/var:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=
-      - MYSQL_DATABASE=laravelapp
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=homestead
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
     networks:
       backend:
         aliases:

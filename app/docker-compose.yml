@@ -3,7 +3,7 @@ services:
 
   laravel-app:
     build:
-      context: './app'
+      context: '.'
       args:
         uid: ${UID}
     container_name: laravel-app
@@ -17,10 +17,10 @@ services:
     networks:
       backend:
         aliases:
-          - laravel-app
+          - laravel-ap
   php:
     build:
-      context: ./app
+      context: ./php
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app

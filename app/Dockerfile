@@ -61,7 +61,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #RUN useradd -G www-data,root -u $uid -d /home/$user $user
 #RUN mkdir -p /home/$user/.composer && \ chown -R $user:$user /home/$user
 
-
 # Add user for laravel application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
@@ -78,3 +77,4 @@ USER www
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+

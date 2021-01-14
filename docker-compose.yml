@@ -3,7 +3,7 @@ services:
 
   laravel-app:
     build:
-      context: './' 
+      context: './'
       args:
         uid: ${UID}
     container_name: laravel-app
@@ -31,7 +31,7 @@ services:
     image: mysql:5.7
     container_name: mysql-db
     ports:
-      - "3308:3308"
+      - "3306:3306"
     volumes:
       - ./run/var:/var/lib/mysql
     environment:
@@ -47,4 +47,6 @@ services:
 networks:
   backend:
     name: backend-network
+
+
 

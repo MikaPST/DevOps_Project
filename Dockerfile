@@ -49,7 +49,8 @@ RUN apt-get update \
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql exif pcntl bcmath gd zip exif pcntl
-#RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-install gd
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -70,6 +71,9 @@ COPY . /var/www
 
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
+
+#insert sql script into image
+OPY ./schema.sql /docker-entrypoint.sh mysqld/
 
 # Change current user to www
 USER www 

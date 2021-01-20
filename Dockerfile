@@ -73,7 +73,7 @@ COPY . /var/www
 COPY --chown=www:www . /var/www
 
 #insert sql script into image
-OPY ./schema.sql /docker-entrypoint.sh mysqld/
+COPY ./schema.sql /docker-entrypoint.sh mysqld/
 
 # Change current user to www
 USER www 
